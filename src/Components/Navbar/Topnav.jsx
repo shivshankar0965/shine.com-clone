@@ -61,6 +61,7 @@ export const Topnav = () => {
               shadow="md"
               display={isVisible ? "block" : "none"}
               pos={"absolute"}
+              zIndex={5}
               right="0"
               top="28px"
               background={"white"}
@@ -137,6 +138,7 @@ export const Topnav = () => {
               display={isVisible1 ? "block" : "none"}
               background={"white"}
               p="4"
+              zIndex={5}
               borderRadius="md"
               pos={"absolute"}
               right="0"
