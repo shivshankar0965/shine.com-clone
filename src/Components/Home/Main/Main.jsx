@@ -1,5 +1,6 @@
 import React from "react";
 import SlideShow from "./SlideShow";
+import TabFirst from "./TabFirst";
 import TopIconLinks from "./TopIconLinks";
 
 export default function Main() {
@@ -7,6 +8,7 @@ export default function Main() {
     <>
       <SlideShow />
       <TopIconLinks />
+      <TabFirst />
     </>
   );
 }
