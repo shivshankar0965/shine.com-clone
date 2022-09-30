@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination, Autoplay } from "swiper";
-import { Image, Text } from "@chakra-ui/react";
+import { Image } from "@chakra-ui/react";
 import styles from "./SlideShow.module.css";
 
 export default function SlideShow() {
@@ -41,7 +41,6 @@ export default function SlideShow() {
     <>
       <Swiper
         speed={800}
-        spaceBetween={50}
         pagination={{
           clickable: true,
         }}
@@ -51,10 +50,10 @@ export default function SlideShow() {
           delay: 3000,
         }}
         loop
-        className={`mySwiper`}
+        className={`mySwiper ${styles.swiper1}`}
       >
-        {/* {topSlides?.map((elm, i) => {
-          return {
+        {topSlides?.map((elm, i) => {
+          return (
             <SwiperSlide key={i}>
               <Image
                 cursor="pointer"
@@ -63,21 +62,9 @@ export default function SlideShow() {
                   window.open(`${elm.link}`, "_blank");
                 }}
               ></Image>
-            </SwiperSlide> 
-          };
-        })} */}
-        <SwiperSlide>
-          <Text>slide1</Text>
-        </SwiperSlide>
-        <SwiperSlide>
-          <Text>slide2</Text>
-        </SwiperSlide>
-        <SwiperSlide>
-          <Text>slide3</Text>
-        </SwiperSlide>
-        <SwiperSlide>
-          <Text>slide4</Text>
-        </SwiperSlide>
+            </SwiperSlide>
+          );
+        })}
       </Swiper>
     </>
   );
