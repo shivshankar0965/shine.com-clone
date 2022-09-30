@@ -1,11 +1,12 @@
 import React from "react";
-// import SlideShow from "../Components/Home/Main/SlideShow";
+import Main from "../Components/Home/Main/Main";
+
 import { Navbar } from "../Components/Home/Navbar/Navbar";
 export const Home = () => {
   return (
     <>
       <Navbar />
-      {/* <SlideShow /> */}
+      <Main />
     </>
   );
 };
