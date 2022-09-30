@@ -12,7 +12,6 @@ import {
 import React, { useState } from "react";
 import { IoPhonePortraitSharp, IoPersonOutline } from "react-icons/io5";
 import { GiVibratingSmartphone } from "react-icons/gi";
-import {} from "react-router-dom";
 export const Topnav = () => {
   const [isVisible, setVisible] = useState(false);
   const [isVisible1, setVisible1] = useState(false);
