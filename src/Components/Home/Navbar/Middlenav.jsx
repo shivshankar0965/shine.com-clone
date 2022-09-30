@@ -16,6 +16,7 @@ import {
   IoNotificationsOutline,
   IoNotificationsOffOutline,
 } from "react-icons/io5";
+import Trending from "./Trending";
 export const Middlenav = () => {
   const [isVisible, setVisible] = useState(false);
   return (
@@ -132,6 +133,7 @@ export const Middlenav = () => {
           </HStack>
         </HStack>
       </HStack>
+      <Trending />
     </>
   );
 };

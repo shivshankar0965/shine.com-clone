@@ -1,9 +1,11 @@
 import React from "react";
-import { Navbar } from "../Components/Navbar/Navbar";
+import SlideShow from "../Components/Home/Main/SlideShow";
+import { Navbar } from "../Components/Home/Navbar/Navbar";
 export const Home = () => {
   return (
     <>
       <Navbar />
+      <SlideShow />
     </>
   );
 };
