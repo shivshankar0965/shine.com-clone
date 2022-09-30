@@ -47,7 +47,7 @@ export const Bottomnav = () => {
                 onMouseEnter={() => setisHovering(e.id)}
                 onMouseLeave={() => setisHovering(-1)}
               >
-                <Text textTransform={"uppercase"} pos={"relative"} mr="4">
+                <Box textTransform={"uppercase"} pos={"relative"} mr="4">
                   {e.title}
 
                   <Box
@@ -59,7 +59,7 @@ export const Bottomnav = () => {
                     backgroundColor="purple.600"
                     width="100%"
                   ></Box>
-                </Text>
+                </Box>
 
                 <VStack
                   display={isHovering === e.id ? "block" : "none"}

@@ -37,7 +37,7 @@ export const Middlenav = () => {
               type="text"
               width={"md"}
               px="3"
-              placeHolder="Job title, skills"
+              placeholder="Job title, skills"
             />
             <Button
               _hover={{ color: "#fff" }}
