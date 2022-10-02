@@ -22,12 +22,13 @@
   height: 40px;
   width: 40px;
   font-size: 30px;
-  color: #777;
+  color: rgb(135, 101, 163);
   border-radius: 50%;
   border: 1px solid rgb(110, 69, 110);
 }
 .sliderChild {
   border-radius: 5px;
-  box-shadow: 2px 2px 10px rgb(113, 113, 113);
+  height: 600px;
+  box-shadow: 2px 2px 10px rgb(170, 170, 170);
   cursor: pointer;
 }

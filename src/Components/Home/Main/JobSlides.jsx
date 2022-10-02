@@ -3,6 +3,7 @@ import styles from "./JobSlides.module.css";
 import { Navigation } from "swiper";
 import { HiChevronLeft, HiChevronRight } from "react-icons/hi";
 import { BsBag } from "react-icons/bs";
+import { IoLocationOutline } from "react-icons/io5";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Box, Flex, HStack, Link, Spacer, Stack, Text } from "@chakra-ui/react";
 // Import Swiper styles
@@ -11,81 +12,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
-const jobsData = [
-  {
-    tag: "hot",
-    day: 1,
-    role: "devOps engineer",
-    company: "wipro limited",
-    location: "banglore",
-    expFrom: 4,
-    expTo: 7,
-    status: "Be an Early Applicant",
-    jobType: "regular",
-    noOfPositions: 0,
-  },
-  {
-    tag: "hot",
-    day: 1,
-    role: "devOps engineer",
-    company: "wipro limited",
-    location: "banglore",
-    expFrom: 4,
-    expTo: 7,
-    status: "Be an Early Applicant",
-    jobType: "regular",
-    noOfPositions: 0,
-  },
-  {
-    tag: "hot",
-    day: 1,
-    role: "devOps engineer",
-    company: "wipro limited",
-    location: "banglore",
-    expFrom: 4,
-    expTo: 7,
-    status: "Be an Early Applicant",
-    jobType: "regular",
-    noOfPositions: 0,
-  },
-  {
-    tag: "hot",
-    day: 1,
-    role: "devOps engineer",
-    company: "wipro limited",
-    location: "banglore",
-    expFrom: 4,
-    expTo: 7,
-    status: "Be an Early Applicant",
-    jobType: "regular",
-    noOfPositions: 0,
-  },
-  {
-    tag: "hot",
-    day: 1,
-    role: "devOps engineer",
-    company: "wipro limited",
-    location: "banglore",
-    expFrom: 4,
-    expTo: 7,
-    status: "Be an Early Applicant",
-    jobType: "regular",
-    noOfPositions: 0,
-  },
-  {
-    tag: "hot",
-    day: 1,
-    role: "devOps engineer",
-    company: "wipro limited",
-    location: "banglore",
-    expFrom: 4,
-    expTo: 7,
-    status: "Be an Early Applicant",
-    jobType: "regular",
-    noOfPositions: 0,
-  },
-];
-export const JobSlides = () => {
+export const JobSlides = ({ data }) => {
   const navigationPrevRef = React.useRef(null);
   const navigationNextRef = React.useRef(null);
   return (
@@ -108,57 +35,78 @@ export const JobSlides = () => {
           slidesPerView={3}
           className={`${styles.slide1}`}
         >
-          {jobsData.map((item, i) => {
-            return (
-              <SwiperSlide className={styles.sliderChild} key={i}>
-                <Flex
-                  p={4}
-                  direction="column"
-                  _hover={{ border: "1px", borderColor: "purple.500" }}
-                  color="gray.600"
-                >
-                  <HStack>
-                    <Text textTransform="capitalize">{item.tag}</Text>
-                    <Spacer />
-                    <Text>{item.day} day ago</Text>
-                  </HStack>
-                  <Text
-                    textTransform="capitalize"
-                    fontSize={"xl"}
-                    fontWeight="bold"
-                    color={"black"}
+          {data &&
+            data?.map((item, i) => {
+              return (
+                <SwiperSlide className={styles.sliderChild} key={i}>
+                  <Flex
+                    p={4}
+                    direction="column"
+                    _hover={{ border: "1px", borderColor: "purple.500" }}
+                    color="gray.600"
+                    fontSize={"13px"}
+                    h="200px"
+                    pos={"relative"}
+                    lineHeight="7"
                   >
-                    {item.role}
-                  </Text>
-                  <Text textTransform="capitalize">{item.company}</Text>
-                  <Flex direction="row">
-                    <Text textTransform="capitalize">{item.location}</Text>
-
-                    <Text>
-                      <BsBag display="inline" border="1px" />
-                      {item.expFrom} to
-                      {item.expTo}
-                    </Text>
-                  </Flex>
-                  <HStack>
-                    <Text>{item.status}</Text>
-                    <Text>{item.jobType}</Text>
-                  </HStack>
-                  <Box display={"flex"} justifyContent="flex-end">
-                    <Link
-                      fontWeight="semibold"
-                      color={"purple.600"}
-                      _hover={{ textDecoration: "none" }}
-                      href="#"
-                      isExternal
+                    <HStack>
+                      <Text textTransform="capitalize">{item.tag}</Text>
+                      <Spacer />
+                      <Text>{item.day} day ago</Text>
+                    </HStack>
+                    <Text
+                      textTransform="capitalize"
+                      fontSize={"xl"}
+                      fontWeight="bold"
+                      color={"black"}
+                      noOfLines={2}
                     >
-                      Apply
-                    </Link>
-                  </Box>
-                </Flex>
-              </SwiperSlide>
-            );
-          })}
+                      {item.role}
+                    </Text>
+                    <Text
+                      textTransform="capitalize"
+                      noOfLines={1}
+                      fontSize={"md"}
+                    >
+                      {item.company}
+                    </Text>
+                    <Flex gap={6} direction="row">
+                      <HStack textTransform="capitalize">
+                        <IoLocationOutline />
+                        <Text>{item.location}</Text>
+                      </HStack>
+
+                      <HStack>
+                        <BsBag />
+                        <Text>
+                          {item.expFrom} to {item.expTo} Yrs
+                        </Text>
+                      </HStack>
+                    </Flex>
+                    <HStack>
+                      <Text>{item.status === "" ? "" : item.status}</Text>
+                      <Text>{item.jobType}</Text>
+                      <Text>
+                        {item.noOfPositions === 0
+                          ? ""
+                          : `${item.noOfPositions} Positions`}
+                      </Text>
+                    </HStack>
+                    <Box pos={"absolute"} bottom="25px" right={"25px"}>
+                      <Link
+                        fontWeight="semibold"
+                        color={"purple.600"}
+                        _hover={{ textDecoration: "none" }}
+                        href="#"
+                        isExternal
+                      >
+                        Apply
+                      </Link>
+                    </Box>
+                  </Flex>
+                </SwiperSlide>
+              );
+            })}
         </Swiper>
         <Box className={styles.prev} ref={navigationPrevRef}>
           <HiChevronLeft />
